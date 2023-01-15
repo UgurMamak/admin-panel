@@ -1,24 +1,36 @@
-import logo from './logo.svg';
 import './App.css';
+import style from './index.module.scss';
+import Sidebar from "./components/sidebar";
+import Header from "./components/header";
+import { ConfigProvider } from 'antd';
+import Dashboard from "./pages/dashboard";
+import { useThemeMode, ColorModeContext } from './helpers/theme';
 
-function App() {
+import {useProSidebar } from 'react-pro-sidebar';
+
+
+const App = () => {
+  const [theme, colorMode, palette] = useThemeMode();
+  const {collapsed} = useProSidebar();
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <ColorModeContext.Provider value={{ colorMode, palette }}>
+        <ConfigProvider theme={theme}>
+          <div style={{ display: 'flex', height: '100%' }}>
+            <Sidebar />
+            <div className={ style.layoutWrap + (collapsed ? ' collapsed' :'')} style={{ display: 'flex', flexDirection: 'column', width: '100%', minHeight: '100vh', height: '100%' }}>
+              <Header />
+              <main style={{ flexGrow: 1 }}>
+                Main
+                <Dashboard />
+              </main>
+            </div>
+          </div>
+        </ConfigProvider>
+      </ColorModeContext.Provider>
+    </>
+
   );
 }
 
