@@ -1,15 +1,20 @@
-@use "./assets/styles/responsive" as *;
+@use './assets/styles/responsive' as *;
 
 .layoutWrap {
-  transition: ease all 0.3s;
+ transition: ease all 0.3s;
 
+ @include responsive(min-md) {
+  margin-left: 270px;
+ }
+
+ &:global(.collapsed) {
   @include responsive(min-md) {
-    margin-left: 250px;
+   margin-left: 100px;
   }
+ }
+}
 
-  &:global(.collapsed) {
-    @include responsive(min-md) {
-      margin-left: 80px;
-    }
-  }
+.baseElement {
+ @include responsive(min-lg) {
+ }
 }

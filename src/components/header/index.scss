@@ -1,0 +1,14 @@
+@use './assets/styles/responsive' as *;
+
+.hamburger-btn {
+ &--mobile {
+  @include responsive(min-lg) {
+   display: none;
+  }
+ }
+ &--desktop {
+  @include responsive(max-md) {
+   display: none;
+  }
+ }
+}
