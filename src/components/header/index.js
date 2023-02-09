@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { useProSidebar } from 'react-pro-sidebar';
 import { MdOutlineDarkMode, MdOutlineLightMode } from 'react-icons/md';
-import { Button, Switch, Row, Col, theme, Layout } from 'antd';
+import { Button, Switch, Row, Col, theme } from 'antd';
 import { RxHamburgerMenu } from 'react-icons/rx';
 import { ColorModeContext } from '../../helpers/theme';
 import './index.scss';
@@ -16,7 +16,7 @@ export default function Index() {
 
   return (
     <header>
-      <div className="container">
+      <div className="">
         <div>
           <Button
             type="text"

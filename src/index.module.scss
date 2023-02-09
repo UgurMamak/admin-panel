@@ -1,20 +1,26 @@
 @use './assets/styles/responsive' as *;
 
 .layoutWrap {
- transition: ease all 0.3s;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  min-height: 100vh;
+  height: 100%;
+  overflow: hidden;
 
- @include responsive(min-md) {
-  margin-left: 270px;
- }
+  transition: ease all 0.3s;
 
- &:global(.collapsed) {
-  @include responsive(min-md) {
-   margin-left: 100px;
+  @include responsive(min-lg) {
+    margin-left: 270px;
   }
- }
+
+  &:global(.collapsed) {
+    @include responsive(min-lg) {
+      margin-left: 100px;
+    }
+  }
 }
 
 .baseElement {
- @include responsive(min-lg) {
- }
+  @include responsive(min-lg) {}
 }
