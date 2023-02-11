@@ -1,0 +1,117 @@
+$input-color: #7F56D9;
+$input-border-color: #D0D5DD;
+$input-focus-border-color: #7F56D9;
+$input-disabled-bg-color: #F2F4F7;
+$input-box-shadow: #F4EBFF;
+$input-error-color: #fda29b;
+$input-error-border-color: #fda29b;
+$input-error-box-shadow: #fee4e2;
+$input-margin-right: 26px;
+$input-border-radius: 4px;
+
+.form-check {
+  &__input {}
+
+  &__label {
+    display: flex;
+  }
+
+  &__text {}
+
+  input[type=radio],
+  input[type=checkbox] {
+    position: relative;
+    display: inline-flex;
+    width: 18px;
+    min-width: 18px;
+    height: 18px;
+    align-items: center;
+    justify-content: center;
+    margin: 0 10px 0 0;
+    appearance: none;
+    color: $input-color;
+
+    &:before {
+      content: '';
+      width: 18px;
+      height: 18px;
+      position: absolute;
+      background: linear-gradient(0deg, #FFFFFF, #FFFFFF), linear-gradient(0deg, #D0D5DD, #D0D5DD);
+      border: 1px solid $input-border-color;
+    }
+
+    &:checked {
+      &::before {
+        border: 1px solid $input-focus-border-color;
+        background: linear-gradient(0deg, #F4EBFF, #F4EBFF), linear-gradient(0deg, #7F56D9, #7F56D9);
+      }
+    }
+
+    &:hover {
+      &::before {
+        border: 1px solid $input-focus-border-color;
+        background: linear-gradient(0deg, #F4EBFF, #F4EBFF), linear-gradient(0deg, #7F56D9, #7F56D9);
+        box-shadow: 0px 0px 0px 4px $input-box-shadow;
+      }
+    }
+
+    &:disabled {
+      &::before {
+        background: $input-disabled-bg-color;
+        border-color: $input-border-color;
+      }
+    }
+
+    &.form-invalid {
+      &:before {
+        color: $input-error-color;
+        border-color: $input-error-border-color;
+        box-shadow: 0px 0px 0px 4px $input-error-box-shadow;
+      }
+
+      &:checked {
+        &:after {
+          background-color: $input-error-color;
+        }
+      }
+
+    }
+
+  }
+
+  input[type=radio] {
+    &:before {
+      display: inline-block;
+      border-radius: 100%;
+    }
+
+    &:checked {
+      &:after {
+        content: '';
+        position: absolute;
+        width: 8px;
+        height: 8px;
+        display: inline-block;
+        background-color: #7F56D9;
+        ;
+        border-radius: 100%;
+        z-index: 2;
+      }
+    }
+  }
+
+  input[type=checkbox] {
+    &:before {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: $input-border-radius;
+    }
+
+    &:checked {
+      &::before {
+        content: 'b';
+      }
+    }
+  }
+}

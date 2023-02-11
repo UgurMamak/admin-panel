@@ -8,9 +8,7 @@ import { router } from './router';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
-    <ProSidebarProvider>
-      <RouterProvider router={router} />
-    </ProSidebarProvider>
-  </React.StrictMode>
+  <ProSidebarProvider>
+    <RouterProvider router={router} />
+  </ProSidebarProvider>
 );
