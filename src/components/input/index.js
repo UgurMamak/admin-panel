@@ -1,3 +1,6 @@
+/* eslint-disable prettier/prettier */
+/* eslint-disable react/function-component-definition */
+/* eslint-disable arrow-body-style */
 import React from 'react';
 import { AiOutlineQuestionCircle } from 'react-icons/ai';
 import './index.scss';
@@ -11,10 +14,18 @@ export default function UMInput({
   type,
   placeholder,
   tooltip,
+  touched,
+  errors,
+  handleChange,
+  customValidate,
+  handleBlur,
   ...inputProps
+
 }) {
+  const errorStatus = touched[name] && errors[name] && (true);
+
   return (
-    <div className="form-element-wrapper">
+    <div className={`form-element-wrapper ${errorStatus && 'form-invalid' } `}>
       <label className="form-label" htmlFor={id}>
         {label}
       </label>
@@ -25,12 +36,37 @@ export default function UMInput({
           id={id}
           name={name}
           placeholder={placeholder}
+          onChange={handleChange}
         />
         {tooltip && (
           <Tooltip placement="left" title={tooltip}>
             <AiOutlineQuestionCircle className="icon" />
           </Tooltip>
         )}
+      </div>
+
+      { errorStatus && (
+        <div className="error-message">{errors[name]}</div>
+      )}
+    </div>
+  );
+}
+
+export const UMTextarea = ({
+  id,
+  name,
+  label,
+  error,
+  type,
+  placeholder,
+  tooltip,
+  ...inputProps
+}) => {
+  return (
+    <div className="form-element-wrapper">
+      <label className="form-label" htmlFor={id}>{label}</label>
+      <div className="form-input-wrapper">
+        <textarea className="form-input" id={id} rows={3} />
       </div>
       {error && <div className="error-message">{error}</div>}
     </div>

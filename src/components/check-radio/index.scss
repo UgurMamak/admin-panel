@@ -14,6 +14,7 @@ $input-border-radius: 4px;
 
   &__label {
     display: flex;
+    margin-bottom: 5px;
   }
 
   &__text {}
@@ -27,9 +28,10 @@ $input-border-radius: 4px;
     height: 18px;
     align-items: center;
     justify-content: center;
-    margin: 0 10px 0 0;
+    margin: 3px 10px 0 0;
     appearance: none;
     color: $input-color;
+    cursor: pointer;
 
     &:before {
       content: '';
@@ -110,7 +112,20 @@ $input-border-radius: 4px;
 
     &:checked {
       &::before {
-        content: 'b';
+       // content: 'b';
+      }
+
+      &:after{
+        content: '';
+        left: 9px;
+        top: 5px;
+        width: 5px;
+        height: 9px;
+        border: solid $input-color;
+        border-width: 0 2px 2px 0;
+        -webkit-transform: rotate(45deg);
+        -ms-transform: rotate(45deg);
+        transform: rotate(45deg);
       }
     }
   }

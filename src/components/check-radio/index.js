@@ -3,20 +3,31 @@
 /* eslint-disable arrow-body-style */
 import React from 'react';
 import './index.scss'
+import { BsCheck } from 'react-icons/bs'
 
 export const UMCheck = ({
   id,
   name,
   value,
   text,
-  error,
+  errors,
   tooltip,
+  checked,
+  handleChange,
+  touched,
   ...inputProps
 }) => {
+  const errorStatus = touched[name] && errors[name] && (true);
   return (
     <div className="form-check">
-      <label className="form-check__label" htmlFor="defaultCheck1">
-        <input className="form-check__input" type="checkbox" defaultValue id={id} name={name} value={value} />
+      <label className="form-check__label" htmlFor={id}>
+        <input className={`form-check__input ${errorStatus && 'form-invalid'} `} 
+        type="checkbox" 
+        checked={checked} 
+        onChange={handleChange} 
+        id={id} 
+        name={name} 
+        value={value} />
         <div className='form-check__text'>
           {text}
         </div>
@@ -25,13 +36,32 @@ export const UMCheck = ({
   );
 }
 
-export const UMRadio = () => {
+export const UMRadio = ({
+  id,
+  name,
+  value,
+  text,
+  errors,
+  tooltip,
+  checked,
+  handleChange,
+  touched,
+  ...inputProps
+}) => {
+  const errorStatus = touched[name] && errors[name] && (true);
+
   return (
     <div className="form-check">
-      <label className="form-check__label" htmlFor="exampleRadios1">
-        <input className="form-check__input" type="radio" name="exampleRadios" id="exampleRadios1" defaultValue="option1" defaultChecked />
+      <label className="form-check__label" htmlFor={id}>
+        <input className={`form-check__input  ${errorStatus && 'form-invalid'}`}
+          type="radio"
+          id={id} 
+          checked={checked}
+          onChange={handleChange}
+          name={name}
+          value={value} />
         <div>
-          Default radio<br />Default radio <br />Default radio
+          {text}
         </div>
       </label>
     </div>
