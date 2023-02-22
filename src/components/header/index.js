@@ -38,9 +38,7 @@ export default function Index() {
           />
         </div>
         <Row gutter={16}>
-          <Col className="gutter-row" xxl={6} xl={6} xs={12}>
-            col-1
-          </Col>
+          <Col className="gutter-row" xxl={6} xl={6} xs={12} />
           <Col xxl={6} xl={6} xs={12}>
             col-2
           </Col>

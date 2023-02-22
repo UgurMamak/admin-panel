@@ -11,6 +11,8 @@ import NavigationPage from '../pages/navigation';
 import ErrorPage from '../pages/error-page';
 import NotFoundPage from '../pages/not-found-page';
 import TestPage from '../pages/testPage';
+import WidgetSchema from '../pages/widget-schema';
+import WidgetSchemaForm from '../pages/widget-schema/form';
 
 export const router = createBrowserRouter([
   {
@@ -30,6 +32,14 @@ export const router = createBrowserRouter([
           {
             path: '/content-management/navigation',
             element: <NavigationPage />,
+          },
+          {
+            path: '/content-management/widget-schema',
+            element: <WidgetSchema />,
+          },
+          {
+            path: '/content-management/widget-schema/form',
+            element: <WidgetSchemaForm />,
           },
           {
             path: '/test-page',
