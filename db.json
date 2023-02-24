@@ -1,0 +1,15 @@
+{
+  "widget_schema": [
+    {
+      "pk": 1,
+      "name": "test-1",
+      "schema": {}
+    },
+    {
+      "pk": 2,
+      "name": "test-2",
+      "schema": {}
+    }
+  ],
+  "widgets" :{}
+}

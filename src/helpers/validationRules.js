@@ -8,3 +8,8 @@ export const validateEmail = (value) => {
   }
   return error;
 };
+
+export const createErrorObject = (touched, errors, name) => ({
+  errorStatus: touched[name] && errors[name],
+  errorMessage: errors[name],
+});

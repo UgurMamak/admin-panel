@@ -10,12 +10,10 @@ export default function UMInput({
   id,
   name,
   label,
-  error,
   type,
   placeholder,
   tooltip,
-  touched,
-  errors,
+  error={},
   handleChange,
   customValidate,
   handleBlur,
@@ -23,10 +21,7 @@ export default function UMInput({
 
 }) {
 
-  let errorStatus = '';
-  if (touched && errors) {
-    errorStatus = touched[name] && errors[name] && (true);
-  }
+  const { errorStatus = false, errorMessage = '' } = error;
 
   return (
     <div className={`form-element-wrapper ${errorStatus && 'form-invalid'} `}>
@@ -50,7 +45,7 @@ export default function UMInput({
       </div>
 
       {errorStatus && (
-        <div className="error-message">{errors[name]}</div>
+        <div className="error-message">{errorMessage}</div>
       )}
     </div>
   );
@@ -60,26 +55,22 @@ export const UMTextarea = ({
   id,
   name,
   label,
-  error,
-  type,
   placeholder,
   tooltip,
-  touched,
-  errors,
+  error={},
+  handleChange,
   ...inputProps
 }) => {
-  let errorStatus = '';
-  if (touched && errors) {
-    errorStatus = touched[name] && errors[name] && (true);
-  }
+
+  const { errorStatus = false, errorMessage = '' } = error;
   return (
     <div className={`form-element-wrapper ${errorStatus && 'form-invalid'} `}>
       <label className="form-label" htmlFor={id}>{label}</label>
       <div className="form-input-wrapper">
-        <textarea className="form-input" id={id} rows={3} />
+        <textarea className="form-input" id={id} name={name} rows={3}  onChange={handleChange} />
       </div>
       {errorStatus && (
-        <div className="error-message">{errors[name]}</div>
+        <div className="error-message">{errorMessage}</div>
       )}
     </div>
   );

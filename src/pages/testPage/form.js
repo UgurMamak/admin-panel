@@ -1,9 +1,8 @@
 import React from 'react';
-import { Formik, Form, Field, ErrorMessage, useFormik } from 'formik';
+import { useFormik } from 'formik';
 import UMInput, { UMTextarea } from 'components/input';
-import { validateEmail } from 'helpers/validationRules';
+import { validateEmail, createErrorObject } from 'helpers/validationRules';
 import { UMCheck, UMRadio } from 'components/check-radio';
-
 import * as Yup from 'yup';
 
 const validationSchema = Yup.object().shape({
@@ -43,7 +42,6 @@ export default function Index() {
 
   const { errors, touched, values, handleChange } = formik;
 
-  console.log('FORMIK=', errors);
   return (
     <div>
       <form onSubmit={formik.handleSubmit}>
@@ -54,8 +52,7 @@ export default function Index() {
           id="email"
           placeholder="olivia@untitledui.com"
           tooltip="İçerik hakkında bilgi"
-          errors={errors}
-          touched={touched}
+          error={createErrorObject(touched, errors, 'email')}
           handleChange={handleChange}
         />
 
@@ -66,8 +63,7 @@ export default function Index() {
           id="email2"
           placeholder="olivia@untitledui.com"
           tooltip="İçerik hakkında bilgi"
-          errors={errors}
-          touched={touched}
+          error={createErrorObject(touched, errors, 'email2')}
           handleChange={handleChange}
           customValidate={validateEmail}
         />
@@ -77,8 +73,7 @@ export default function Index() {
           id="check_1"
           text="check_1"
           value="check_1"
-          errors={errors}
-          touched={touched}
+          error={createErrorObject(touched, errors, 'check_1')}
           checked={values.check_1}
           handleChange={handleChange}
         />
@@ -88,8 +83,7 @@ export default function Index() {
           id="radio_11"
           text="check-2"
           value="radio-value-1"
-          errors={errors}
-          touched={touched}
+          error={createErrorObject(touched, errors, 'radio_1')}
           checked={values.radio_1 === 'radio-value-1'}
           handleChange={handleChange}
         />
@@ -99,8 +93,7 @@ export default function Index() {
           id="radio_2"
           text="check-2"
           value="radio-value-2"
-          errors={errors}
-          touched={touched}
+          error={createErrorObject(touched, errors, 'radio_1')}
           checked={values.radio_1 === 'radio-value-2'}
           handleChange={handleChange}
         />
@@ -110,8 +103,7 @@ export default function Index() {
           id="radio_3"
           text="check-3"
           value="radio-value-3"
-          errors={errors}
-          touched={touched}
+          error={createErrorObject(touched, errors, 'radio_1')}
           checked={values.radio_1 === 'radio-value-3'}
           handleChange={handleChange}
         />
@@ -121,39 +113,3 @@ export default function Index() {
     </div>
   );
 }
-
-// export default function Index() {
-//   return (
-//     <div>
-//       <h1>Displaying Error Messages</h1>
-//       <Formik
-//         initialValues={{
-//           username: '',
-//           email: '',
-//           email2: '',
-//         }}
-//         validationSchema={DisplayingErrorMessagesSchema}
-//         onSubmit={(values) => {
-//           // same shape as initial values
-//           console.log(values);
-//         }}
-//       >
-//         {({ errors, touched }) => (
-//           <Form>
-//             <Field name="username" />
-//             {touched.username && errors.username && (
-//               <div>{errors.username}</div>
-//             )}
-//             <Field name="email" />
-//             {touched.email && errors.email && <div>{errors.email}</div>}
-
-//             <Field name="email2" validate={validateEmail} />
-//             {touched.email2 && errors.email2 && <div>{errors.email2}</div>}
-
-//             <button type="submit">Submit</button>
-//           </Form>
-//         )}
-//       </Formik>
-//     </div>
-//   );
-// }

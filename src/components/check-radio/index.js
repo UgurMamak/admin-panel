@@ -10,14 +10,13 @@ export const UMCheck = ({
   name,
   value,
   text,
-  errors,
+  error={},
   tooltip,
   checked,
   handleChange,
-  touched,
   ...inputProps
 }) => {
-  const errorStatus = touched[name] && errors[name] && (true);
+  const { errorStatus = false, errorMessage = '' } = error;
   return (
     <div className="form-check">
       <label className="form-check__label" htmlFor={id}>
@@ -41,14 +40,13 @@ export const UMRadio = ({
   name,
   value,
   text,
-  errors,
+  error={},
   tooltip,
   checked,
   handleChange,
-  touched,
   ...inputProps
 }) => {
-  const errorStatus = touched[name] && errors[name] && (true);
+  const { errorStatus = false, errorMessage = '' } = error;
 
   return (
     <div className="form-check">
