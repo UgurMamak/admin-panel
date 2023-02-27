@@ -6,6 +6,7 @@ import { widgetURL } from '../config/api';
 
 const initialState = {
   widgetSchema: [],
+  postLoading: false,
 };
 
 export const fetchWidgetSchema = createAsyncThunk(
@@ -13,6 +14,16 @@ export const fetchWidgetSchema = createAsyncThunk(
   async () => {
     const response = await axios.get(widgetURL.fetchWidgetSchema);
     return response.data;
+  }
+);
+
+export const postWidgetSchema = createAsyncThunk(
+  'widget_schema/post',
+  async (data) => {
+    const payload = await axios
+      .post(widgetURL.postWidgetSchema, data)
+      .then((response) => response.data);
+    return payload;
   }
 );
 
@@ -30,6 +41,15 @@ export const widgetSlice = createSlice({
       })
       .addCase(fetchWidgetSchema.rejected, (state, action) => {
         state.widgetSchema = action.payload;
+      })
+      .addCase(postWidgetSchema.pending, (state, payload) => {
+        state.postLoading = true;
+      })
+      .addCase(postWidgetSchema.fulfilled, (state, action) => {
+        state.postLoading = false;
+      })
+      .addCase(postWidgetSchema.rejected, (state, action) => {
+        state.postLoading = false;
       });
   },
 });

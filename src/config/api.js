@@ -2,7 +2,7 @@ export const baseURL = 'http://localhost:3004';
 
 export const widgetURL = {
   fetchWidgetSchema: `${baseURL}/widget_schema`,
-  addEmployee: `${baseURL}/employees`,
+  postWidgetSchema: `${baseURL}/widget_schema`,
   updateEmployee: `${baseURL}/employees/`,
   deleteEmployee: `${baseURL}/employees/`,
   fetchEmployeeById: `${baseURL}/employees/`,

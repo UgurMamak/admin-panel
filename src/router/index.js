@@ -13,6 +13,7 @@ import NotFoundPage from '../pages/not-found-page';
 import TestPage from '../pages/testPage';
 import WidgetSchema from '../pages/widget-schema';
 import WidgetSchemaForm from '../pages/widget-schema/form';
+import TestPage2 from '../pages/test-page-2';
 
 export const router = createBrowserRouter([
   {
@@ -44,6 +45,10 @@ export const router = createBrowserRouter([
           {
             path: '/test-page',
             element: <TestPage />,
+          },
+          {
+            path: '/test-page-2',
+            element: <TestPage2 />,
           },
           {
             path: '*',

@@ -17,6 +17,7 @@ export default function UMInput({
   handleChange,
   customValidate,
   handleBlur,
+  value,
   ...inputProps
 
 }) {
@@ -36,6 +37,7 @@ export default function UMInput({
           name={name}
           placeholder={placeholder}
           onChange={handleChange}
+          value={value}
         />
         {tooltip && (
           <Tooltip placement="left" title={tooltip}>
@@ -59,6 +61,7 @@ export const UMTextarea = ({
   tooltip,
   error={},
   handleChange,
+  value,
   ...inputProps
 }) => {
 
@@ -67,7 +70,7 @@ export const UMTextarea = ({
     <div className={`form-element-wrapper ${errorStatus && 'form-invalid'} `}>
       <label className="form-label" htmlFor={id}>{label}</label>
       <div className="form-input-wrapper">
-        <textarea className="form-input" id={id} name={name} rows={3}  onChange={handleChange} />
+        <textarea className="form-input" id={id} name={name} rows={3} value={value} onChange={handleChange} />
       </div>
       {errorStatus && (
         <div className="error-message">{errorMessage}</div>

@@ -1,15 +1,36 @@
 {
   "widget_schema": [
     {
-      "pk": 1,
-      "name": "test-1",
-      "schema": {}
+      "widget_type_name": "test-3",
+      "widget_schema": "{\n  \"slider_images\": {\n    \"multi\": true,\n    \"data_type\": \"nested\",\n    \"label\": \"Slider\",\n    \"key\": \"slider_images\",\n    \"is_localizable\":true,\n    \"schema\": {\n      \"vid_link\": {\n        \"required\": false,\n        \"data_type\": \"text\",\n        \"key\": \"vid_link\",\n        \"label\": \"Video Link\"\n      },\n      \"image\": {\n        \"required\": false,\n        \"data_type\": \"image\",\n        \"key\": \"image\",\n        \"label\": \"Image\"\n      },\n      \"mob_image\": {\n        \"required\": false,\n        \"data_type\": \"image\",\n        \"key\": \"mob_image\",\n        \"label\": \"Mobile Image\"\n      },\n      \"link\": {\n        \"required\": false,\n        \"data_type\": \"text\",\n        \"key\": \"link\",\n        \"label\": \"Image Link Target\"\n      },\n      \"alt\": {\n        \"required\": false,\n        \"data_type\": \"text\",\n        \"key\": \"alt\",\n        \"label\": \"Image Alt Text\"\n      },\n      \"link_target\": {\n        \"required\": false,\n        \"choices\": [\n          {\n            \"value\": \"yes\",\n            \"label\": \"Evet\"\n          },\n          {\n            \"value\": \"no\",\n            \"label\": \"Hayır\"\n          }\n        ],\n        \"data_type\": \"dropdown\",\n        \"key\": \"link_target\",\n        \"label\": \"Banner Yeni Pencerede Açılsın mı?\"\n      },\n      \"title\": {\n        \"required\": false,\n        \"data_type\": \"text\",\n        \"key\": \"title\",\n        \"label\": \"Başlık\"\n      },\n      \"title_color\": {\n        \"required\": false,\n        \"display\": \"color_picker\",\n        \"data_type\": \"text\",\n        \"key\": \"title_color\",\n        \"label\": \"Başlık Rengi\"\n      },\n      \"title_size\": {\n        \"required\": false,\n        \"data_type\": \"text\",\n        \"key\": \"title_size\",\n        \"label\": \"Başlık Boyutu\"\n      },\n      \"title_letter_spacing\": {\n        \"required\": false,\n        \"data_type\": \"text\",\n        \"key\": \"title_letter_spacing\",\n        \"label\": \"Başlık Karakter Aralığı\"\n      },\n      \"description\": {\n        \"required\": false,\n        \"data_type\": \"area\",\n        \"key\": \"description\",\n        \"label\": \"Açıklama\"\n      },\n      \"description_color\": {\n        \"required\": false,\n        \"display\": \"color_picker\",\n        \"data_type\": \"text\",\n        \"key\": \"description_color\",\n        \"label\": \"Açıklama Rengi\"\n      },\n      \"button_text\": {\n        \"required\": false,\n        \"data_type\": \"text\",\n        \"key\": \"button_text\",\n        \"label\": \"Buton Yazısı\"\n      },\n      \"button_color\": {\n        \"required\": false,\n        \"display\": \"color_picker\",\n        \"data_type\": \"text\",\n        \"key\": \"button_color\",\n        \"label\": \"Buton Rengi\"\n      }\n    }\n  },\n  \"margin\":{\n    \"required\":false,\n    \"data_type\":\"dropdown\",\n    \"key\":\"margin\",\n    \"label\":\"Slider Boşluğu\",\n    \"is_localizable\":true,\n    \"choices\":\n    [\n       {\n          \"value\":\"no\",\n          \"label\":\"Olmasın\"\n       },\n       {\n          \"value\":\"yes\",\n          \"label\":\"Olsun\"\n       }\n    ]\n  }\n}",
+      "id": 1
     },
     {
-      "pk": 2,
-      "name": "test-2",
-      "schema": {}
+      "widget_type_name": "test-3",
+      "widget_schema": "{\n  \"sliders\": {\n    \"multi\": true,\n    \"data_type\": \"nested\",\n    \"is_localizable\":true,\n    \"key\": \"Slider\",\n    \"label\": \"sliders\",\n    \"schema\": {\n      \"image\": {\n        \"required\": true,\n        \"data_type\": \"image\",\n        \"key\": \"image\",\n        \"label\": \"Resim (1370x456)\"\n      },\n      \"mobile_image\": {\n        \"required\": true,\n        \"data_type\": \"image\",\n        \"key\": \"mobile_image\",\n        \"label\": \"Mobile Resimi (375x562)\"\n      },\n      \"url\": {\n        \"required\": false,\n        \"data_type\": \"text\",\n        \"key\": \"url\",\n        \"label\": \"Link\"\n      }\n    }\n  }\n}",
+      "minified": "{\"sliders\":{\"multi\":true,\"data_type\":\"nested\",\"is_localizable\":true,\"key\":\"Slider\",\"label\":\"sliders\",\"schema\":{\"image\":{\"required\":true,\"data_type\":\"image\",\"key\":\"image\",\"label\":\"Resim (1370x456)\"},\"mobile_image\":{\"required\":true,\"data_type\":\"image\",\"key\":\"mobile_image\",\"label\":\"Mobile Resimi (375x562)\"},\"url\":{\"required\":false,\"data_type\":\"text\",\"key\":\"url\",\"label\":\"Link\"}}}}",
+      "id": 2
+    },
+    {
+      "widget_type_name": "test-2",
+      "widget_schema": "{\"sliders\":{\"multi\":true,\"data_type\":\"nested\",\"is_localizable\":true,\"key\":\"Slider\",\"label\":\"sliders\",\"schema\":{\"image\":{\"required\":true,\"data_type\":\"image\",\"key\":\"image\",\"label\":\"Resim (1370x456)\"},\"mobile_image\":{\"required\":true,\"data_type\":\"image\",\"key\":\"mobile_image\",\"label\":\"Mobile Resimi (375x562)\"},\"url\":{\"required\":false,\"data_type\":\"text\",\"key\":\"url\",\"label\":\"Link\"}}}}",
+      "id": 3
+    },
+    {
+      "widget_type_name": "hksahld",
+      "widget_schema": "{\"sliders\":{\"multi\":true,\"data_type\":\"nested\",\"is_localizable\":true,\"key\":\"Slider\",\"label\":\"sliders\",\"schema\":{\"image\":{\"required\":true,\"data_type\":\"image\",\"key\":\"image\",\"label\":\"Resim (1370x456)\"},\"mobile_image\":{\"required\":true,\"data_type\":\"image\",\"key\":\"mobile_image\",\"label\":\"Mobile Resimi (375x562)\"},\"url\":{\"required\":false,\"data_type\":\"text\",\"key\":\"url\",\"label\":\"Link\"}}}}",
+      "id": 4
+    },
+    {
+      "widget_type_name": "son",
+      "widget_schema": "{\"sliders\":{\"multi\":true,\"data_type\":\"nested\",\"is_localizable\":true,\"key\":\"Slider\",\"label\":\"sliders\",\"schema\":{\"image\":{\"required\":true,\"data_type\":\"image\",\"key\":\"image\",\"label\":\"Resim (1370x456)\"},\"mobile_image\":{\"required\":true,\"data_type\":\"image\",\"key\":\"mobile_image\",\"label\":\"Mobile Resimi (375x562)\"},\"url\":{\"required\":false,\"data_type\":\"text\",\"key\":\"url\",\"label\":\"Link\"}}}}",
+      "id": 5
+    },
+    {
+      "widget_type_name": "sonnn",
+      "widget_schema": "{\"sliders\":{\"multi\":true,\"data_type\":\"nested\",\"is_localizable\":true,\"key\":\"Slider\",\"label\":\"sliders\",\"schema\":{\"image\":{\"required\":true,\"data_type\":\"image\",\"key\":\"image\",\"label\":\"Resim (1370x456)\"},\"mobile_image\":{\"required\":true,\"data_type\":\"image\",\"key\":\"mobile_image\",\"label\":\"Mobile Resimi (375x562)\"},\"url\":{\"required\":false,\"data_type\":\"text\",\"key\":\"url\",\"label\":\"Link\"}}}}",
+      "id": 6
     }
   ],
-  "widgets" :{}
+  "widgets": {}
 }
