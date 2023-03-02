@@ -1,10 +1,16 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useFormik } from 'formik';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import * as Yup from 'yup';
-import UMInput, { UMTextarea } from '../../components/input';
 import { createErrorObject } from '../../helpers/validationRules';
+
+// Redux
 import { postWidgetSchema } from '../../redux/widgetSlice';
+
+// components
+import UMInput, { UMTextarea } from '../../components/input';
+import UMModal from '../../components/modal';
+import UMButton from '../../components/button';
 
 const validationSchema = Yup.object().shape({
   widget_type_name: Yup.string().required('Boş Bırakmayınız'),
@@ -13,6 +19,11 @@ const validationSchema = Yup.object().shape({
 
 export default function Form() {
   const dispatch = useDispatch();
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const widgetSchemaReducer = useSelector(
+    (state) => state.widget_schema_reducer
+  );
+
   const formik = useFormik({
     initialValues: {
       widget_type_name: '',
@@ -26,41 +37,55 @@ export default function Form() {
 
       dispatch(postWidgetSchema(data)).then(() => {
         resetForm();
+        setIsModalOpen(true);
       });
     },
     validationSchema,
   });
 
-  const { errors, touched, handleChange, values, isSubmitting } = formik;
+  const handleOk = () => {
+    setIsModalOpen(false);
+  };
+  const handleCancel = () => {
+    setIsModalOpen(false);
+  };
+
+  const { errors, touched, handleChange, values } = formik;
 
   return (
-    <form onSubmit={formik.handleSubmit}>
-      <UMInput
-        type="text"
-        label="Widget Tip Adı"
-        name="widget_type_name"
-        id="widget_type_name"
-        placeholder="Widget Tipi..."
-        tooltip="İçerik hakkında bilgi"
-        error={createErrorObject(touched, errors, 'widget_type_name')}
-        handleChange={handleChange}
-        value={values.widget_type_name}
-      />
-      <UMTextarea
-        label="Widget Şema"
-        name="widget_schema"
-        id="widget_schema"
-        tooltip="İçerik hakkında bilgi"
-        error={createErrorObject(touched, errors, 'widget_schema')}
-        handleChange={handleChange}
-        value={values.widget_schema}
-      />
-      <button type="submit" className="btn btn-primary">
-        Kaydet
-      </button>
-      <button type="button" onClick={formik.resetForm} disabled={isSubmitting}>
-        Reset
-      </button>
-    </form>
+    <>
+      <UMModal
+        isModalOpen={isModalOpen}
+        handleOk={handleOk}
+        handleCancel={handleCancel}
+      >
+        <h1>{widgetSchemaReducer.post.message}</h1>
+      </UMModal>
+      <form onSubmit={formik.handleSubmit}>
+        <UMInput
+          type="text"
+          label="Widget Tip Adı"
+          name="widget_type_name"
+          id="widget_type_name"
+          placeholder="Widget Tipi..."
+          tooltip="İçerik hakkında bilgi"
+          error={createErrorObject(touched, errors, 'widget_type_name')}
+          handleChange={handleChange}
+          value={values.widget_type_name}
+        />
+        <UMTextarea
+          label="Widget Şema"
+          name="widget_schema"
+          id="widget_schema"
+          tooltip="İçerik hakkında bilgi"
+          error={createErrorObject(touched, errors, 'widget_schema')}
+          handleChange={handleChange}
+          value={values.widget_schema}
+        />
+        <UMButton type="submit" className="btn btn-primary">
+          Kaydet
+        </UMButton>
+      </form>
+    </>
   );
 }

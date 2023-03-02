@@ -7,6 +7,10 @@ import { widgetURL } from '../config/api';
 const initialState = {
   widgetSchema: [],
   postLoading: false,
+  post: {
+    errorStatus: false,
+    message: '',
+  },
 };
 
 export const fetchWidgetSchema = createAsyncThunk(
@@ -44,12 +48,26 @@ export const widgetSlice = createSlice({
       })
       .addCase(postWidgetSchema.pending, (state, payload) => {
         state.postLoading = true;
+        state.post = {
+          ...state.post,
+          errorStatus: false,
+        };
       })
       .addCase(postWidgetSchema.fulfilled, (state, action) => {
         state.postLoading = false;
+        state.post = {
+          ...state.post,
+          errorStatus: true,
+          message: 'Şema Eklendi',
+        };
       })
       .addCase(postWidgetSchema.rejected, (state, action) => {
         state.postLoading = false;
+        state.post = {
+          ...state.post,
+          errorStatus: false,
+          message: 'Hata şema eklenmedi',
+        };
       });
   },
 });

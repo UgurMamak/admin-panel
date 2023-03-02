@@ -1,12 +1,25 @@
-import React from 'react';
+import React, { useState } from 'react';
 import UMInput, { UMTextarea } from 'components/input';
 import { UMCheck, UMRadio, UMTest } from 'components/check-radio';
 import UMRichText from 'components/rich-text-editor';
+import { Button } from 'antd';
 import Form from './form';
+import Modal from '../../components/modal';
 
 export default function Index() {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const showModal = () => {
+    setIsModalOpen(true);
+  };
+
   return (
     <div>
+      <Button type="primary" onClick={showModal}>
+        Open Modal
+      </Button>
+      <Modal isModalOpen={isModalOpen}>
+        <h1>Modal Content</h1>
+      </Modal>
       Test Page
       <Form />
       {/* <UMInput

@@ -5,6 +5,6 @@ import widgetReducer from './widgetSlice';
 export default configureStore({
   reducer: {
     counter: counterReducer,
-    widget_schema: widgetReducer,
+    widget_schema_reducer: widgetReducer,
   },
 });

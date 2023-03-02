@@ -30,6 +30,31 @@
       "widget_type_name": "sonnn",
       "widget_schema": "{\"sliders\":{\"multi\":true,\"data_type\":\"nested\",\"is_localizable\":true,\"key\":\"Slider\",\"label\":\"sliders\",\"schema\":{\"image\":{\"required\":true,\"data_type\":\"image\",\"key\":\"image\",\"label\":\"Resim (1370x456)\"},\"mobile_image\":{\"required\":true,\"data_type\":\"image\",\"key\":\"mobile_image\",\"label\":\"Mobile Resimi (375x562)\"},\"url\":{\"required\":false,\"data_type\":\"text\",\"key\":\"url\",\"label\":\"Link\"}}}}",
       "id": 6
+    },
+    {
+      "widget_type_name": "ytreytr",
+      "widget_schema": "{\"sliders\":{\"multi\":true,\"data_type\":\"nested\",\"is_localizable\":true,\"key\":\"Slider\",\"label\":\"sliders\",\"schema\":{\"image\":{\"required\":true,\"data_type\":\"image\",\"key\":\"image\",\"label\":\"Resim (1370x456)\"},\"mobile_image\":{\"required\":true,\"data_type\":\"image\",\"key\":\"mobile_image\",\"label\":\"Mobile Resimi (375x562)\"},\"url\":{\"required\":false,\"data_type\":\"text\",\"key\":\"url\",\"label\":\"Link\"}}}}",
+      "id": 7
+    },
+    {
+      "widget_type_name": "reyertre",
+      "widget_schema": "{\"sliders\":{\"multi\":true,\"data_type\":\"nested\",\"is_localizable\":true,\"key\":\"Slider\",\"label\":\"sliders\",\"schema\":{\"image\":{\"required\":true,\"data_type\":\"image\",\"key\":\"image\",\"label\":\"Resim (1370x456)\"},\"mobile_image\":{\"required\":true,\"data_type\":\"image\",\"key\":\"mobile_image\",\"label\":\"Mobile Resimi (375x562)\"},\"url\":{\"required\":false,\"data_type\":\"text\",\"key\":\"url\",\"label\":\"Link\"}}}}",
+      "id": 8
+    },
+    {
+      "widget_type_name": "gdfgdsfhfgh",
+      "widget_schema": "{\"sliders\":{\"multi\":true,\"data_type\":\"nested\",\"is_localizable\":true,\"key\":\"Slider\",\"label\":\"sliders\",\"schema\":{\"image\":{\"required\":true,\"data_type\":\"image\",\"key\":\"image\",\"label\":\"Resim (1370x456)\"},\"mobile_image\":{\"required\":true,\"data_type\":\"image\",\"key\":\"mobile_image\",\"label\":\"Mobile Resimi (375x562)\"},\"url\":{\"required\":false,\"data_type\":\"text\",\"key\":\"url\",\"label\":\"Link\"}}}}",
+      "id": 9
+    },
+    {
+      "widget_type_name": "trewtery",
+      "widget_schema": "{\"sliders\":{\"multi\":true,\"data_type\":\"nested\",\"is_localizable\":true,\"key\":\"Slider\",\"label\":\"sliders\",\"schema\":{\"image\":{\"required\":true,\"data_type\":\"image\",\"key\":\"image\",\"label\":\"Resim (1370x456)\"},\"mobile_image\":{\"required\":true,\"data_type\":\"image\",\"key\":\"mobile_image\",\"label\":\"Mobile Resimi (375x562)\"},\"url\":{\"required\":false,\"data_type\":\"text\",\"key\":\"url\",\"label\":\"Link\"}}}}",
+      "id": 10
+    },
+    {
+      "widget_type_name": "gfdgf",
+      "widget_schema": "{\"sliders\":{\"multi\":true,\"data_type\":\"nested\",\"is_localizable\":true,\"key\":\"Slider\",\"label\":\"sliders\",\"schema\":{\"image\":{\"required\":true,\"data_type\":\"image\",\"key\":\"image\",\"label\":\"Resim (1370x456)\"},\"mobile_image\":{\"required\":true,\"data_type\":\"image\",\"key\":\"mobile_image\",\"label\":\"Mobile Resimi (375x562)\"},\"url\":{\"required\":false,\"data_type\":\"text\",\"key\":\"url\",\"label\":\"Link\"}}}}",
+      "id": 11
     }
   ],
   "widgets": {}
