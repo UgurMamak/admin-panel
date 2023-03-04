@@ -2,6 +2,13 @@ import React, { useState } from 'react';
 import { useFormik } from 'formik';
 import { useDispatch, useSelector } from 'react-redux';
 import * as Yup from 'yup';
+
+// helpers
+import { isObject } from 'helpers/typeControl';
+
+// custom hooks
+import useModal from 'hook/useModal';
+
 import { createErrorObject } from '../../helpers/validationRules';
 
 // Redux
@@ -19,7 +26,8 @@ const validationSchema = Yup.object().shape({
 
 export default function Form() {
   const dispatch = useDispatch();
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const { isModalOpen, modalClose, modalOpen } = useModal();
+
   const widgetSchemaReducer = useSelector(
     (state) => state.widget_schema_reducer
   );
@@ -30,25 +38,22 @@ export default function Form() {
       widget_schema: '',
     },
     onSubmit: async (values, { resetForm }) => {
-      const data = {
-        ...values,
-        widget_schema: JSON.stringify(JSON.parse(values.widget_schema)),
-      };
+      if (isObject(values.widget_schema)) {
+        const data = {
+          ...values,
+          widget_schema: JSON.stringify(JSON.parse(values.widget_schema)),
+        };
 
-      dispatch(postWidgetSchema(data)).then(() => {
-        resetForm();
-        setIsModalOpen(true);
-      });
+        dispatch(postWidgetSchema(data)).then(() => {
+          modalOpen();
+          resetForm();
+        });
+      }else{
+        modalOpen();
+      }
     },
     validationSchema,
   });
-
-  const handleOk = () => {
-    setIsModalOpen(false);
-  };
-  const handleCancel = () => {
-    setIsModalOpen(false);
-  };
 
   const { errors, touched, handleChange, values } = formik;
 
@@ -56,8 +61,8 @@ export default function Form() {
     <>
       <UMModal
         isModalOpen={isModalOpen}
-        handleOk={handleOk}
-        handleCancel={handleCancel}
+        modalClose={modalClose}
+        modalOpen={modalOpen}
       >
         <h1>{widgetSchemaReducer.post.message}</h1>
       </UMModal>

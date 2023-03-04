@@ -1,26 +1,25 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
+import { createPortal } from 'react-dom';
 import { Modal } from 'antd';
 
-export default function Index({
+export default function UMModal({
   isModalOpen,
   children,
-  handleCancel,
-  handleOk,
+  modalOpen,
+  modalClose,
 }) {
-  const [modalShow, setModalShow] = useState(isModalOpen);
-
-  useEffect(() => {
-    setModalShow(isModalOpen);
-  }, [isModalOpen]);
-
-  return (
-    <Modal
-      title="Basic Modal"
-      open={modalShow}
-      onOk={handleOk}
-      onCancel={handleCancel}
-    >
-      {children}
-    </Modal>
-  );
+  if (isModalOpen) {
+    return createPortal(
+      <Modal
+        title="Basic Modal"
+        open={isModalOpen}
+        onOk={modalClose}
+        onCancel={modalClose}
+      >
+        {children}
+      </Modal>,
+      document.getElementById('second-root')
+    );
+  }
+  return null;
 }

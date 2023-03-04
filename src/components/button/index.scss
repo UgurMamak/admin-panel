@@ -23,9 +23,13 @@
   border: none;
   box-shadow: 0px 1px 2px rgba(16, 24, 40, 0.05);
   border-radius: 8px;
-  border: 1px solid #7F56D9;
+  border: 1px solid transparent;
+  background-color: transparent;
   cursor: pointer;
+  font-weight: 600;
+  font-size: 14px;
 }
+
 .btn-primary {
   $text-color: #fff;
   $bg-color: #7F56D9;
@@ -46,6 +50,24 @@
   @include btnthmestyle($bg-color,$bg-hover-color,$bg-disabled-color,$text-color,$box-shadow-color);
 }
 
+.btn-link{
+  $text-color:#344054;
+  $bg-color: transparent;
+  $bg-hover-color:#F9FAFB;
+  $bg-disabled-color: #D0D5DD;
+  $box-shadow-color:  transparent;
+
+  @include btnthmestyle($bg-color,$bg-hover-color,$bg-disabled-color,$text-color,$box-shadow-color);
+}
+
 .border-none{
   border: none;
 }
+
+.btn-outline-primary{}
+
+.btn-outline-secondary{}
+
+.btn-large{}
+
+.btn-medium{}
