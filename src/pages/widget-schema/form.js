@@ -9,15 +9,15 @@ import { isObject } from 'helpers/typeControl';
 // custom hooks
 import useModal from 'hook/useModal';
 
-import { createErrorObject } from '../../helpers/validationRules';
+import { createErrorObject } from 'helpers/validationRules';
 
 // Redux
-import { postWidgetSchema } from '../../redux/widgetSlice';
+import { postWidgetSchema, postUpdate } from 'redux/widgetSlice';
 
 // components
-import UMInput, { UMTextarea } from '../../components/input';
-import UMModal from '../../components/modal';
-import UMButton from '../../components/button';
+import UMInput, { UMTextarea } from 'components/input';
+import UMModal from 'components/modal';
+import UMButton from 'components/button';
 
 const validationSchema = Yup.object().shape({
   widget_type_name: Yup.string().required('Boş Bırakmayınız'),
@@ -48,7 +48,13 @@ export default function Form() {
           modalOpen();
           resetForm();
         });
-      }else{
+      } else {
+        dispatch(
+          postUpdate({
+            message: 'Widget Şeması doğru formatta değil',
+            errorStatus: true,
+          })
+        );
         modalOpen();
       }
     },

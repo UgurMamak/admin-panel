@@ -4,16 +4,18 @@
 import { createBrowserRouter } from 'react-router-dom';
 
 // pages
-import App from '../App';
-import Dashboard from '../pages/dashboard';
-import Widgets from '../pages/widgets';
-import NavigationPage from '../pages/navigation';
-import ErrorPage from '../pages/error-page';
-import NotFoundPage from '../pages/not-found-page';
-import TestPage from '../pages/testPage';
-import WidgetSchema from '../pages/widget-schema';
-import WidgetSchemaForm from '../pages/widget-schema/form';
-import TestPage2 from '../pages/test-page-2';
+import App from 'App';
+import Dashboard from 'pages/dashboard';
+import Widgets from 'pages/widgets';
+import NavigationPage from 'pages/navigation';
+import ErrorPage from 'pages/error-page';
+import NotFoundPage from 'pages/not-found-page';
+import TestPage from 'pages/testPage';
+import WidgetSchema from 'pages/widget-schema';
+import WidgetSchemaForm from 'pages/widget-schema/form';
+import TestPage2 from 'pages/test-page-2';
+
+import ThemeTemplate from 'themeTemplate';
 
 export const router = createBrowserRouter([
   {
@@ -49,6 +51,10 @@ export const router = createBrowserRouter([
           {
             path: '/test-page-2',
             element: <TestPage2 />,
+          },
+          {
+            path: '/template',
+            element: <ThemeTemplate />,
           },
           {
             path: '*',

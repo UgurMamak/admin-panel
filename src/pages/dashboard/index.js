@@ -1,6 +1,6 @@
 import React from 'react';
 import { Button, theme } from 'antd';
-import Counter from '../../components/counter';
+import Counter from 'components/counter';
 
 function Index() {
   const { useToken } = theme;

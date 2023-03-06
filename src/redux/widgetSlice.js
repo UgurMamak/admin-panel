@@ -2,7 +2,7 @@
 
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import axios from 'axios';
-import { widgetURL } from '../config/api';
+import { widgetURL } from 'config/api';
 
 const initialState = {
   widgetSchema: [],
@@ -34,7 +34,15 @@ export const postWidgetSchema = createAsyncThunk(
 export const widgetSlice = createSlice({
   name: 'widgets',
   initialState,
-  reducers: {},
+  reducers: {
+    postUpdate: (state, { payload }) => {
+      state.post = {
+        ...state.post,
+        message: payload.message,
+        errorStatus: payload.errorStatus,
+      };
+    },
+  },
   extraReducers: (builder) => {
     builder
       .addCase(fetchWidgetSchema.pending, (state, action) => {
@@ -73,5 +81,7 @@ export const widgetSlice = createSlice({
 });
 
 // export const allEmployees = (state) => state.employeeSlice.employees;
+
+export const { postUpdate } = widgetSlice.actions;
 
 export default widgetSlice.reducer;

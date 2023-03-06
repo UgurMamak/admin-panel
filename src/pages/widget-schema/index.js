@@ -6,7 +6,7 @@ import { useNavigate } from 'react-router-dom';
 import { Button } from 'antd';
 
 // Redux
-import { fetchWidgetSchema } from '../../redux/widgetSlice';
+import { fetchWidgetSchema } from 'redux/widgetSlice';
 
 export default function Index() {
   const navigate = useNavigate();

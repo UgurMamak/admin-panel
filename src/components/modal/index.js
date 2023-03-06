@@ -10,12 +10,7 @@ export default function UMModal({
 }) {
   if (isModalOpen) {
     return createPortal(
-      <Modal
-        title="Basic Modal"
-        open={isModalOpen}
-        onOk={modalClose}
-        onCancel={modalClose}
-      >
+      <Modal open={isModalOpen} onOk={modalClose} onCancel={modalClose}>
         {children}
       </Modal>,
       document.getElementById('second-root')
