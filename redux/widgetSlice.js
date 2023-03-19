@@ -2,7 +2,7 @@
 
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import axios from 'axios';
-import { widgetURL } from 'config/api';
+import { widgetURL } from '../config/api';
 
 const initialState = {
   widgetSchema: [],
