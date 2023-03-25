@@ -1,18 +1,22 @@
-import React, { useContext } from 'react';
-import { useProSidebar } from 'react-pro-sidebar';
+import React, { useContext, useEffect } from 'react';
 import { MdOutlineDarkMode, MdOutlineLightMode } from 'react-icons/md';
 import { Button, Switch, Row, Col, theme } from 'antd';
 import { RxHamburgerMenu } from 'react-icons/rx';
 import { ColorModeContext } from 'helpers/theme';
-import './index.scss';
+import { SidebarContext } from 'context/sidebarContext';  
 
+//import './index.scss';
 export default function Index() {
-  const { collapseSidebar, toggleSidebar } = useProSidebar();
+  
   const { colorMode, palette } = useContext(ColorModeContext);
+  const { collapsed, collapseSidebar } = useContext(SidebarContext);
   const { useToken } = theme;
   const { token } = useToken();
 
-  document.body.style = `background:${token.colorBgLayout}`;
+  useEffect(()=>{
+    document.body.style = `background:${token.colorBgLayout}`;
+  },[token.colorBgLayout]);
+
 
   return (
     <header>
@@ -21,7 +25,7 @@ export default function Index() {
           <Button
             type="text"
             className="hamburger-btn--desktop"
-            onClick={() => collapseSidebar()}
+            onClick={collapseSidebar}
             icon={<RxHamburgerMenu />}
           />
           <Switch

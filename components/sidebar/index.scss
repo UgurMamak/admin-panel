@@ -1,0 +1,26 @@
+.sidebar {
+  position: fixed !important;
+  top: 10px;
+  left: 10px;
+  bottom: 10px;
+  border: none !important;
+  z-index: 1;
+  border-radius: 10px;
+
+
+  @include responsive(min-lg) {
+    &:not(.collapsed) {
+      width: 260px;
+    }
+  }
+
+
+  .ant-menu{
+    height: 100%;
+
+    @include responsive(min-lg) {
+      border-radius: 10px;
+    }
+  }
+
+}

@@ -1,0 +1,10 @@
+@use './responsive' as *;
+
+
+@import './main.scss';
+@import 'components/header/index.scss';
+@import '../components/sidebar/index.scss';
+@import 'components/button/index.scss';
+@import 'components/check-radio/index.scss';
+@import 'components/input/index.scss';
+@import 'components/rich-text-editor/index.scss';

@@ -1,5 +1,3 @@
-@use './assets/styles/responsive' as *;
-
 .hamburger-btn {
  &--mobile {
   @include responsive(min-lg) {

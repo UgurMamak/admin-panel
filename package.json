@@ -25,5 +25,8 @@
     "react-quill": "^2.0.0",
     "react-redux": "^8.0.5",
     "yup": "^1.0.2"
+  },
+  "devDependencies": {
+    "sass": "^1.60.0"
   }
 }

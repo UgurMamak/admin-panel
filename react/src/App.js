@@ -2,7 +2,7 @@ import React, { useMemo } from 'react';
 import { Outlet } from 'react-router-dom';
 import { ConfigProvider } from 'antd';
 import { useProSidebar } from 'react-pro-sidebar';
-import { useThemeMode, ColorModeContext } from './helpers/theme';
+import { useThemeMode, ColorModeContext } from '../../helpers/theme';
 import Sidebar from './components/sidebar';
 import Header from './components/header';
 

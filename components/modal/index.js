@@ -1,5 +1,4 @@
 import React from 'react';
-import { createPortal } from 'react-dom';
 import { Modal } from 'antd';
 
 export default function UMModal({
@@ -9,12 +8,9 @@ export default function UMModal({
   modalClose,
 }) {
   if (isModalOpen) {
-    return createPortal(
-      <Modal open={isModalOpen} onOk={modalClose} onCancel={modalClose}>
+   return (<Modal open={isModalOpen} onOk={modalClose} onCancel={modalClose}>
         {children}
-      </Modal>,
-      document.getElementById('second-root')
-    );
+      </Modal>)
   }
   return null;
 }

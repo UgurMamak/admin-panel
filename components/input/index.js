@@ -3,7 +3,6 @@
 /* eslint-disable arrow-body-style */
 import React from 'react';
 import { AiOutlineQuestionCircle } from 'react-icons/ai';
-import './index.scss';
 import { Tooltip } from 'antd';
 
 export default function UMInput({
