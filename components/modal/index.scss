@@ -1,0 +1,10 @@
+.um-modal{
+    .modal-footer{
+        text-align: end;
+        button{
+           + button{
+                margin-left: 10px;
+            }
+        }
+    }
+}

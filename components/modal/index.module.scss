@@ -1,0 +1,34 @@
+.umModal {
+  .modal-footer {
+    text-align: end;
+
+    button {
+      +button {
+        margin-left: 10px;
+      }
+    }
+  }
+
+  .modalIcon {
+    font-size: 20px;
+
+    .icon {
+      color: red;
+    }
+
+    &:hover {
+      .icon {
+        color: green;
+      }
+    }
+
+    &:before {
+      content: '';
+    }
+
+    &:after {
+      content: '';
+    }
+
+  }
+}

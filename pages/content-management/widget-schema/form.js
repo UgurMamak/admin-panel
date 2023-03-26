@@ -69,6 +69,9 @@ export default function Form() {
         isModalOpen={isModalOpen}
         modalClose={modalClose}
         modalOpen={modalOpen}
+        closeButton={true}
+        okButton={true}
+        icon = {'success'}
       >
         <h1>{widgetSchemaReducer.post.message}</h1>
       </UMModal>
