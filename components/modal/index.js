@@ -18,7 +18,7 @@ export default function UMModal({
     if(icon){
       switch (icon) {
         case 'success':
-          return <span className={style.modalIcon}>< BsCheckCircle className={style.icon}/></span>;
+          return <span className={`${style.modalIcon} ${style.success}`}>< BsCheckCircle className={style.icon}/></span>;
         default: null;
       }
     }

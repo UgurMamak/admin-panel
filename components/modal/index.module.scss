@@ -10,24 +10,56 @@
   }
 
   .modalIcon {
+    display: inline-block;
+    position: relative;
     font-size: 20px;
+    width: 48px;
+    height: 48px;
 
-    .icon {
-      color: red;
-    }
-
-    &:hover {
-      .icon {
-        color: green;
-      }
+    &:before,
+    &:after {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      border-radius: 50%;
+      display: block;
     }
 
     &:before {
-      content: '';
+      //background-color: red;
     }
 
     &:after {
-      content: '';
+      //background-color: green;
+      top: 7px;
+      right: 7px;
+      bottom: 7px;
+      left: 7px;
+    }
+
+    .icon {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 1;
+    }
+
+    &.success {
+      &:before {
+        background-color: #ECFDF3;
+      }
+
+      &:after {
+        background-color: #D1FADF;
+      }
+
+      .icon {
+        color: #039855;
+      }
     }
 
   }
