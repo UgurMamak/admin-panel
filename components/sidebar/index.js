@@ -102,12 +102,12 @@ const Sidebar = () => {
   return (
     <div
       className={` sidebar ${collapsed ? 'collapsed' : ''} `}
-      style={{ backgroundColor: `${token.colorSecondaryBg}` }}
     >
       <Menu
+        style={{ backgroundColor: `${token.colorSecondaryBg}` }}
         defaultSelectedKeys={['1']}
         mode="inline"
-
+        className='deneme'
         inlineCollapsed={collapsed}
         items={items}
       />

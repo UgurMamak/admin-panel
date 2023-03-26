@@ -6,7 +6,7 @@
   border: none !important;
   z-index: 1;
   border-radius: 10px;
-
+  transition: ease all .3s;
 
   @include responsive(min-lg) {
     &:not(.collapsed) {
@@ -17,6 +17,7 @@
 
   .ant-menu{
     height: 100%;
+    border-inline-end: none;
 
     @include responsive(min-lg) {
       border-radius: 10px;
