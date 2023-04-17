@@ -32,6 +32,7 @@ function MyApp({ Component, pageProps }) {
       <ColorModeContext.Provider value={colorModeProviderValue}>
         <SidebarContext.Provider value={{collapsed, collapseSidebar}}>
           <ConfigProvider theme={themeType}>
+      
             <Layout>
               <Component {...pageProps} />
             </Layout>

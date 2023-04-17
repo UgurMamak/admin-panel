@@ -1,4 +1,4 @@
-@mixin btnthmestyle($bg-color,$bg-hover-color,$bg-disabled-color,$text-color,$box-shadow-color){
+@mixin btnthmestyle($bg-color, $bg-hover-color, $bg-disabled-color, $text-color, $box-shadow-color) {
   border-color: $bg-color;
   background-color: $bg-color;
   color: $text-color;
@@ -7,7 +7,7 @@
     box-shadow: 0px 1px 2px rgba(16, 24, 40, 0.05), 0px 0px 0px 4px $box-shadow-color;
   }
 
-  &:hover{
+  &:hover {
     background-color: $bg-hover-color;
   }
 
@@ -17,6 +17,25 @@
     box-shadow: 0px 1px 2px rgba(16, 24, 40, 0.05);
   }
 }
+
+$primary-text-color: #fff;
+$primary-bg-color: #7F56D9;
+$primary-bg-hover-color: #6941C6;
+$primary-bg-disabled-color: #E9D7FE;
+$primary-box-shadow-color: #F4EBFF;
+
+$secondary-text-color: #fff;
+$secondary-bg-color: #D92D20;
+$secondary-bg-hover-color: #B42318;
+$secondary-bg-disabled-color: #FECDCA;
+$secondary-box-shadow-color: #FEE4E2;
+
+$link-text-color: #344054;
+$link-bg-color: transparent;
+$link-bg-hover-color: #F9FAFB;
+$link-bg-disabled-color: #D0D5DD;
+$link-box-shadow-color: transparent;
+
 
 .btn {
   padding: 10px 15px;
@@ -28,46 +47,47 @@
   cursor: pointer;
   font-weight: 600;
   font-size: 14px;
+  text-align: center;
 }
 
 .btn-primary {
-  $text-color: #fff;
-  $bg-color: #7F56D9;
-  $bg-hover-color:#6941C6;
-  $bg-disabled-color:#E9D7FE;
-  $box-shadow-color:  #F4EBFF;
+  $text-color: $primary-text-color;
+  $bg-color: $primary-bg-color;
+  $bg-hover-color: $primary-bg-hover-color;
+  $bg-disabled-color: $primary-bg-disabled-color;
+  $box-shadow-color: $primary-box-shadow-color;
 
-  @include btnthmestyle($bg-color,$bg-hover-color,$bg-disabled-color,$text-color,$box-shadow-color);
+  @include btnthmestyle($bg-color, $bg-hover-color, $bg-disabled-color, $text-color, $box-shadow-color);
 }
 
-.btn-secondary{
-  $text-color:#fff;
-  $bg-color: #D92D20;
-  $bg-hover-color:#B42318;
-  $bg-disabled-color: #FECDCA;
-  $box-shadow-color:  #FEE4E2;
+.btn-secondary {
+  $text-color: $secondary-text-color;
+  $bg-color: $secondary-bg-color;
+  $bg-hover-color: $secondary-bg-hover-color;
+  $bg-disabled-color: $secondary-bg-disabled-color;
+  $box-shadow-color: $secondary-box-shadow-color;
 
-  @include btnthmestyle($bg-color,$bg-hover-color,$bg-disabled-color,$text-color,$box-shadow-color);
+  @include btnthmestyle($bg-color, $bg-hover-color, $bg-disabled-color, $text-color, $box-shadow-color);
 }
 
-.btn-link{
-  $text-color:#344054;
-  $bg-color: transparent;
-  $bg-hover-color:#F9FAFB;
-  $bg-disabled-color: #D0D5DD;
-  $box-shadow-color:  transparent;
+.btn-link {
+  $text-color: $link-text-color;
+  $bg-color: $link-bg-color;
+  $bg-hover-color: $link-bg-hover-color;
+  $bg-disabled-color: $link-bg-disabled-color;
+  $box-shadow-color: $link-box-shadow-color;
 
-  @include btnthmestyle($bg-color,$bg-hover-color,$bg-disabled-color,$text-color,$box-shadow-color);
+  @include btnthmestyle($bg-color, $bg-hover-color, $bg-disabled-color, $text-color, $box-shadow-color);
 }
 
-.border-none{
+.border-none {
   border: none;
 }
 
-.btn-outline-primary{}
+.btn-outline-primary {}
 
-.btn-outline-secondary{}
+.btn-outline-secondary {}
 
-.btn-large{}
+.btn-large {}
 
-.btn-medium{}
+.btn-medium {}

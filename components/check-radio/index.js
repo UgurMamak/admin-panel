@@ -2,7 +2,6 @@
 /* eslint-disable react/function-component-definition */
 /* eslint-disable arrow-body-style */
 import React from 'react';
-import './index.scss'
 import { BsCheck } from 'react-icons/bs'
 
 export const UMCheck = ({
@@ -17,16 +16,19 @@ export const UMCheck = ({
   ...inputProps
 }) => {
   const { errorStatus = false, errorMessage = '' } = error;
+  
   return (
-    <div className="form-check">
+    <div className={`form-check ${inputProps.disabled ? 'disabled':''}`}>
       <label className="form-check__label" htmlFor={id}>
-        <input className={`form-check__input ${errorStatus && 'form-invalid'} `} 
+        <input className={`form-check__input ${errorStatus ? 'form-invalid':''} `} 
         type="checkbox" 
         checked={checked} 
         onChange={handleChange} 
         id={id} 
         name={name} 
-        value={value} />
+        value={value}
+        {...inputProps}
+         />
         <div className='form-check__text'>
           {text}
         </div>
@@ -49,7 +51,7 @@ export const UMRadio = ({
   const { errorStatus = false, errorMessage = '' } = error;
 
   return (
-    <div className="form-check">
+    <div className={`form-check ${inputProps.disabled ? 'disabled':''}`}>
       <label className="form-check__label" htmlFor={id}>
         <input className={`form-check__input  ${errorStatus && 'form-invalid'}`}
           type="radio"
@@ -57,8 +59,9 @@ export const UMRadio = ({
           checked={checked}
           onChange={handleChange}
           name={name}
-          value={value} />
-        <div>
+          value={value}
+          {...inputProps} />
+        <div className='form-check__text'>
           {text}
         </div>
       </label>
