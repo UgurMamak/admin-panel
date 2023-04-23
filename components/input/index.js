@@ -17,6 +17,8 @@ export default function UMInput({
   customValidate,
   handleBlur,
   value,
+  icon,
+  disabled,
   ...inputProps
 
 }) {
@@ -28,7 +30,9 @@ export default function UMInput({
       <label className="form-label" htmlFor={id}>
         {label}
       </label>
-      <div className="form-input-wrapper">
+      <div className={`form-input-wrapper ${icon ? 'has-input-icon' : ''}`}>
+        
+        {icon ? <span className='input-icon'>{icon}</span>  :''}
         <input
           type={type}
           className="form-input"
@@ -37,6 +41,7 @@ export default function UMInput({
           placeholder={placeholder}
           onChange={handleChange}
           value={value}
+          disabled={disabled ? disabled : ''}
         />
         {tooltip && (
           <Tooltip placement="left" title={tooltip}>
