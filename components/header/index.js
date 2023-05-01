@@ -37,7 +37,7 @@ export default function Index() {
           <Button
             type="text"
             className="hamburger-btn--mobile"
-            onClick={() => toggleSidebar()}
+            onClick={collapseSidebar}
             icon={<RxHamburgerMenu />}
           />
         </div>

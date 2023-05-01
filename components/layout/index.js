@@ -9,12 +9,12 @@ export default function Layout({ children }) {
 
   return (
     <>
-      <Sidebar />
-      <div className={`container layoutWrap ${
-              collapsed ? ' collapsed' : ''
-            }`}>
       <Header />
-      <main>{children}</main>
+      <Sidebar />
+      <div className={`container layoutWrap ${collapsed ? ' collapsed' : ''
+        }`}>
+
+        <main>{children}</main>
       </div>
     </>
   )

@@ -1,16 +1,31 @@
 .sidebar {
   position: fixed !important;
-  top: 10px;
+  top: 60px;
   left: 10px;
   bottom: 10px;
   border: none !important;
   z-index: 1;
   border-radius: 10px;
   transition: ease all .3s;
+  overflow: auto;
 
   @include responsive(min-lg) {
     &:not(.collapsed) {
       width: 260px;
+    }
+  }
+
+  @include responsive(max-md){
+    &:not(.collapsed) {
+     right:10px;
+    }
+  }
+
+  .ant-menu{
+    &.ant-menu-inline-collapsed{
+      @include responsive(max-md){
+        width: 0;
+      }
     }
   }
 
