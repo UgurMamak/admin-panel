@@ -6,6 +6,9 @@ const nextConfig = {
     fiber: false,
     includePaths: [path.join(__dirname, 'styles')],
   },
+  typescript: {
+    // ...
+  },
 }
 
 module.exports = nextConfig

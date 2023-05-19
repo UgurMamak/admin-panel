@@ -8,7 +8,6 @@ export default function Theme() {
     <div>
         <h1>Theme Page</h1>
         <h2>Style Guide</h2>
-        <ThemePalette/>
     </div>
   )
 }

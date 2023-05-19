@@ -11,9 +11,14 @@ import variables from '../styles/variables.module.scss';
 import '../styles/index.scss';
 
 import { useSidebar } from '../hooks/useSidebar';
+import { AppProps } from 'next/app';
+
+interface CustomPageProps { // <--- your custom page props
+   // your props
+}
 
 
-function MyApp({ Component, pageProps }) {
+function MyApp({ Component, pageProps }: AppProps<CustomPageProps>) {
   const router = useRouter();
   const [ collapsed, collapseSidebar ] = useSidebar();
 
@@ -29,16 +34,15 @@ function MyApp({ Component, pageProps }) {
 
   return (
     <Provider store={store}>
-      <ColorModeContext.Provider value={colorModeProviderValue}>
         <SidebarContext.Provider value={{collapsed, collapseSidebar}}>
-          <ConfigProvider theme={themeType}>
+          <ConfigProvider >
       
             <Layout>
               <Component {...pageProps} />
             </Layout>
           </ConfigProvider>
         </SidebarContext.Provider>
-      </ColorModeContext.Provider>
+
     </Provider>
   );
 }
