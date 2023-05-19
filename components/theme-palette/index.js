@@ -171,6 +171,7 @@ const Index = () => {
     <div className={style.themePaletteWrapper}>
       <Button type="primary" icon={<IoMdColorPalette />} />
       <div className="theme-palette-body">
+        {/* Button */}
         <div className={style.componentItem}>
           <h3>Button</h3>
           <UMButton>Deneme</UMButton>
@@ -181,6 +182,7 @@ const Index = () => {
           <UMButton className='btn-secondary' disabled>Secondary Disabled</UMButton>
         </div>
 
+        {/* Checkbox */}
         <div className={style.componentItem}>
           <h3>checkbox</h3>
           <UMCheck text={'text'} />
@@ -190,6 +192,7 @@ const Index = () => {
           <UMCheck text={'Error'} error={{ errorStatus: true, errorMessage: 'Hata mesajı' }} />
         </div>
 
+        {/* Radio */}
         <div className={style.componentItem}>
           <h3>Radio</h3>
           <UMRadio text={'text'} />
@@ -199,6 +202,7 @@ const Index = () => {
           <UMRadio text={'Error'} error={{ errorStatus: true, errorMessage: 'Hata mesajı' }} />
         </div>
 
+        {/* Input */}
         <div className={style.componentItem}>
           <h3>Input</h3>
           <UMInput
@@ -242,6 +246,12 @@ const Index = () => {
           />
         </div>
 
+        <div className={style.componentItem}>
+          
+        </div>
+
+
+        {/* Table */}
         <div>
           <h3>Table</h3>
           <UMTable columns={columns} data={data} header={<span>Header<IoMdColorPalette /></span>} />
