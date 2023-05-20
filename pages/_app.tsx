@@ -13,6 +13,8 @@ import '../styles/index.scss';
 import { useSidebar } from '../hooks/useSidebar';
 import { AppProps } from 'next/app';
 
+import { useState } from 'react';
+
 interface CustomPageProps { // <--- your custom page props
    // your props
 }
@@ -20,7 +22,9 @@ interface CustomPageProps { // <--- your custom page props
 
 function MyApp({ Component, pageProps }: AppProps<CustomPageProps>) {
   const router = useRouter();
-  const [ collapsed, collapseSidebar ] = useSidebar();
+  const {collapsed, collapseSidebar} = useSidebar(false);
+
+
 
   const [themeType, colorMode, palette] = useThemeMode();
   const colorModeProviderValue = useMemo(

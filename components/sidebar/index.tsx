@@ -2,7 +2,7 @@ import { BiHomeAlt, BiBookContent } from 'react-icons/bi';
 import { Button, Menu } from 'antd';
 import { useState, useContext } from 'react';
 import Link from 'next/link';
-import { SidebarContext } from 'context/sidebarContext';
+import { SidebarContext, SidebarContextType } from '../../context/sidebarContext';
 import { theme } from 'antd';
 
 const items = [
@@ -96,6 +96,7 @@ const items = [
 
 const Sidebar = () => {
   const { collapsed, collapseSidebar } = useContext(SidebarContext);
+  
   const { useToken } = theme;
   const { token } = useToken();
 
@@ -104,7 +105,7 @@ const Sidebar = () => {
       className={` sidebar ${collapsed ? 'collapsed' : ''} `}
     >
       <Menu
-        style={{ backgroundColor: `${token.colorSecondaryBg}` }}
+       
         defaultSelectedKeys={['1']}
         mode="inline"
         className='deneme'
