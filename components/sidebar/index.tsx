@@ -94,14 +94,14 @@ const items = [
   },
 ];
 
-const Sidebar = () => {
+const Sidebar:React.FC = () => {
   const { collapsed, collapseSidebar } = useContext(SidebarContext);
   
   const { useToken } = theme;
   const { token } = useToken();
 
   return (
-    <div
+    <nav
       className={` sidebar ${collapsed ? 'collapsed' : ''} `}
     >
       <Menu
@@ -112,7 +112,7 @@ const Sidebar = () => {
         inlineCollapsed={collapsed}
         items={items}
       />
-    </div>
+    </nav>
   );
 };
 export default Sidebar;

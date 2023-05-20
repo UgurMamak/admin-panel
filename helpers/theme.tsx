@@ -2,11 +2,11 @@ import { useMemo, useState, createContext } from 'react';
 import lightThemeStyle from './lightColor';
 import darkThemeStyle from './darkColor';
 
-export const tokens = (mode) => ({
+export const tokens = (mode:string) => ({
   ...(mode === 'dark' ? darkThemeStyle : lightThemeStyle),
 });
 
-export const themeSettings = (mode) => {
+export const themeSettings = (mode:string) => {
   const colors = tokens(mode);
   return {
     token: {
@@ -35,6 +35,26 @@ export const useThemeMode = () => {
   return [themeType, colorMode, palette];
 };
 
-export const ColorModeContext = createContext({
+type PaletteType ={
+  mode:string
+}
+
+type ColorModeType2 = {
+  toggleColorMode: ()=>void;
+}
+
+type ColorModeType = {
+  toggleColorMode: ()=>void;
+  colorMode:ColorModeType2;
+  palette:PaletteType;
+}
+
+export const ColorModeContext = createContext<ColorModeType>({
   toggleColorMode: () => { },
+  colorMode: {
+    toggleColorMode:()=>{}
+  },
+  palette:{
+    mode:''
+  }
 });

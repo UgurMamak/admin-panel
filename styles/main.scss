@@ -1,35 +1,49 @@
+html {
+  height: 100%;
+}
+
+body {
+  display: flex;
+  flex-flow: column;
+  height: 100%;
+}
+
+#__next{
+  height: 100%;
+}
+
+main {
+  height: 100%;
+}
+
 .layoutWrap {
-    display: flex;
-    flex-direction: column;
-    flex-grow: 1;
-    min-height: 100vh;
-    height: 100%;
-    overflow: hidden;
-  
-    transition: ease all 0.3s;
-  
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  min-height: 100vh;
+  height: 100%;
+  overflow: hidden;
+
+  transition: ease all 0.3s;
+
+  @include responsive(min-lg) {
+    margin-left: 270px;
+  }
+
+  &.collapsed {
     @include responsive(min-lg) {
-      margin-left: 270px;
-    }
-  
-    &.collapsed {
-      @include responsive(min-lg) {
-        margin-left: 100px;
-      }
-    }
-  
-    &:global(.collapsed) {
-      @include responsive(min-lg) {
-        margin-left: 100px;
-      }
+      margin-left: 100px;
     }
   }
-  
-  main {
-    flex-grow: 1;
+
+  &:global(.collapsed) {
+    @include responsive(min-lg) {
+      margin-left: 100px;
+    }
   }
-  
-  .container {
-    padding-left: 12px;
-    padding-right: 12px;
-   }
+}
+
+.container {
+  padding-left: 12px;
+  padding-right: 12px;
+}
