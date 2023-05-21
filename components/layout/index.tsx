@@ -1,14 +1,13 @@
-import {useContext} from 'react';
+import React,{useContext} from 'react';
 import Sidebar from "../sidebar"
 import Header from "../header";
 import { SidebarContext } from "@/context/sidebarContext";
 
+interface IProps {
+  children:React.ReactNode
+}
 
-export default function Layout({
-  children,
-}: {
-  children: React.ReactNode
-}) {
+const  Layout:React.FC<IProps> = ({children})=> {
   const { collapsed } = useContext(SidebarContext);
   return (
     <>
@@ -19,4 +18,6 @@ export default function Layout({
           </main>
     </>
   )
-}
+};
+
+export default Layout;

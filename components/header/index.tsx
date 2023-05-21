@@ -8,7 +8,7 @@ import { SidebarContext } from '../../context/sidebarContext';
 //import './index.scss';
 
 
-const style: React.CSSProperties = {  padding: '0 12px' };
+const style: React.CSSProperties = { backgroundColor:'#fff' ,padding: '0 12px', position:'fixed', top:'0', left:'0',right:'0' };
 
 const Header: React.FC = () => {
 
@@ -17,8 +17,14 @@ const Header: React.FC = () => {
   const { useToken } = theme;
   const { token } = useToken();
 
+  console.log("COLOR_MODE=",colorMode,'PALETTE=',palette);
+
   useEffect(() => {
     document.body.style.backgroundColor = token.colorBgLayout;
+    const header = document.querySelector('header');
+    if(header){
+      header.style.backgroundColor = token.colorBgLayout;
+    }
   }, [token.colorBgLayout]);
 
 
@@ -44,7 +50,7 @@ const Header: React.FC = () => {
           icon={<RxHamburgerMenu />}
         />
       </div>
-      <Row gutter={24}>
+      <Row style={{display:'none'}} gutter={24}>
         <Col className="gutter-row" xxl={6} xl={6} xs={12} >
           col-1
         </Col>

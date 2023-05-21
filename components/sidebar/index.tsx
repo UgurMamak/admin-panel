@@ -100,12 +100,14 @@ const Sidebar:React.FC = () => {
   const { useToken } = theme;
   const { token } = useToken();
 
+  console.log('THEME=',theme);
+
   return (
     <nav
       className={` sidebar ${collapsed ? 'collapsed' : ''} `}
     >
       <Menu
-       
+        theme='dark'
         defaultSelectedKeys={['1']}
         mode="inline"
         className='deneme'
