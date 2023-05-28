@@ -105,7 +105,7 @@ const Sidebar: React.FC = () => {
 
   return (
     <nav
-      className={` sidebar ${collapsed ? 'collapsed' : ''} `}
+      className={` sidebar ${collapsed ? 'collapsed' : ''} ${themeContext.currentTheme} `}
     >
       <Menu
         theme={menuTheme}
