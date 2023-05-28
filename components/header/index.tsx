@@ -2,31 +2,24 @@ import React, { useContext, useEffect } from 'react';
 import { MdOutlineDarkMode, MdOutlineLightMode } from 'react-icons/md';
 import { Button, Switch, Row, Col, theme } from 'antd';
 import { RxHamburgerMenu } from 'react-icons/rx';
-import { ColorModeContext } from '../../helpers/theme';
+import { ThemeContext } from '../../helpers/theme';
 import { SidebarContext } from '../../context/sidebarContext';
 
-//import './index.scss';
-
-
-const style: React.CSSProperties = { backgroundColor:'#fff' ,padding: '0 12px', position:'fixed', top:'0', left:'0',right:'0' };
+const style: React.CSSProperties = { backgroundColor: '#fff', padding: '0 12px', position: 'fixed', top: '0', left: '0', right: '0' };
 
 const Header: React.FC = () => {
-
-  const { colorMode, palette } = useContext(ColorModeContext);
+  const themeContext = useContext(ThemeContext);
   const { collapsed, collapseSidebar } = useContext(SidebarContext);
   const { useToken } = theme;
   const { token } = useToken();
 
-  console.log("COLOR_MODE=",colorMode,'PALETTE=',palette);
-
   useEffect(() => {
     document.body.style.backgroundColor = token.colorBgLayout;
     const header = document.querySelector('header');
-    if(header){
+    if (header) {
       header.style.backgroundColor = token.colorBgLayout;
     }
   }, [token.colorBgLayout]);
-
 
   return (
     <header style={style}>
@@ -41,7 +34,7 @@ const Header: React.FC = () => {
           checkedChildren={<MdOutlineDarkMode />}
           unCheckedChildren={<MdOutlineLightMode />}
           defaultChecked
-          onChange={colorMode.toggleColorMode}
+          onChange={() => { themeContext?.changeColorEvent?.run() }}
         />
         <Button
           type="text"
@@ -50,7 +43,7 @@ const Header: React.FC = () => {
           icon={<RxHamburgerMenu />}
         />
       </div>
-      <Row style={{display:'none'}} gutter={24}>
+      <Row style={{ display: 'none' }} gutter={24}>
         <Col className="gutter-row" xxl={6} xl={6} xs={12} >
           col-1
         </Col>

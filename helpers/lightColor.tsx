@@ -1,4 +1,5 @@
 const lightThemeStyle = {
+  colorSidebarBg:'#fff',
   colorSidebarIcon: '#9ba1aa',
   colorSidebarIconHover: '#4d4fd7',
   colorSidebarIconHoverBg: '#ebf0f4',

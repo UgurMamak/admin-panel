@@ -2,12 +2,31 @@ import { useMemo, useState, createContext } from 'react';
 import lightThemeStyle from './lightColor';
 import darkThemeStyle from './darkColor';
 
-export const tokens = (mode:string) => ({
-  ...(mode === 'dark' ? darkThemeStyle : lightThemeStyle),
+// seçili temayı tutacak light, dark =colorMode
+// tema değiştiren fonksiyonu tutacak. =changeColorMode
+// renk paletini tutacak. =palette
+
+interface ITheme {
+  currentTheme: string;
+  colorPalette: string | (() => void) | { token: {} };
+  changeColorEvent: { run: () => void } | undefined;
+}
+
+export const ThemeContext = createContext<ITheme>({
+  currentTheme:'',
+  colorPalette:'',
+  changeColorEvent:{run:()=>{}}
 });
 
-export const themeSettings = (mode:string) => {
-  const colors = tokens(mode);
+export const themeSettings = (mode: string) => {
+  let colors: object = {};
+
+  if (mode === 'dark') {
+    colors = darkThemeStyle;
+  } else {
+    colors = lightThemeStyle;
+  }
+
   return {
     token: {
       ...colors,
@@ -18,43 +37,22 @@ export const themeSettings = (mode:string) => {
 export const useThemeMode = () => {
   const [mode, setMode] = useState('light');
 
-  const colorMode = useMemo(
+  const changeColorEvent = useMemo(
     () => ({
-      toggleColorMode: () =>
+      run: () =>
         setMode((prev) => (prev === 'light' ? 'dark' : 'light')),
     }),
     []
   );
 
-  const themeType = useMemo(() => themeSettings(mode), [mode]);
+  //renklerin tutulduğu object döner.
+  const colorPalette = useMemo(() => themeSettings(mode), [mode]);
 
-  const palette = {
-    mode,
-  };
-
-  return [themeType, colorMode, palette];
-};
-
-type PaletteType ={
-  mode:string
-}
-
-type ColorModeType2 = {
-  toggleColorMode: ()=>void;
-}
-
-type ColorModeType = {
-  toggleColorMode: ()=>void;
-  colorMode:ColorModeType2;
-  palette:PaletteType;
-}
-
-export const ColorModeContext = createContext<ColorModeType>({
-  toggleColorMode: () => { },
-  colorMode: {
-    toggleColorMode:()=>{}
-  },
-  palette:{
-    mode:''
+  //seçili tema ismini döner.
+  const currentTheme = mode;
+  return {
+    currentTheme,
+    colorPalette,
+    changeColorEvent
   }
-});
+};

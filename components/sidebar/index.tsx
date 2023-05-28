@@ -2,8 +2,9 @@ import { BiHomeAlt, BiBookContent } from 'react-icons/bi';
 import { Button, Menu } from 'antd';
 import { useState, useContext } from 'react';
 import Link from 'next/link';
-import { SidebarContext, SidebarContextType } from '../../context/sidebarContext';
-import { theme } from 'antd';
+import { SidebarContext, SidebarContextType } from '@/context/sidebarContext';
+import { theme, MenuTheme } from 'antd';
+import { ThemeContext } from '@/helpers/theme';
 
 const items = [
   {
@@ -94,20 +95,20 @@ const items = [
   },
 ];
 
-const Sidebar:React.FC = () => {
+const Sidebar: React.FC = () => {
   const { collapsed, collapseSidebar } = useContext(SidebarContext);
-  
+  const themeContext = useContext(ThemeContext);
   const { useToken } = theme;
   const { token } = useToken();
-
-  console.log('THEME=',theme);
+  const themeString: string = themeContext?.currentTheme;
+  const menuTheme: MenuTheme = themeString as MenuTheme;
 
   return (
     <nav
       className={` sidebar ${collapsed ? 'collapsed' : ''} `}
     >
       <Menu
-        theme='dark'
+        theme={menuTheme}
         defaultSelectedKeys={['1']}
         mode="inline"
         className='deneme'
